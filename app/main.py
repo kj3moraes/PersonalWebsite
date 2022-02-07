@@ -1,9 +1,12 @@
-#from urllib import request
 from tempfile import TemporaryFile
 from flask import Flask, render_template, request, redirect
+from flask_mail import Mail,Message
 import csv
+
 app = Flask(__name__)
 print(__name__)
+mail = Mail(app)
+
 
 @app.route('/')
 def homepg():
