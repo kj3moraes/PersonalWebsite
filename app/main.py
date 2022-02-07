@@ -7,7 +7,6 @@ app = Flask(__name__)
 print(__name__)
 mail = Mail(app)
 
-
 @app.route('/')
 def homepg():
     return render_template('index.html')
