@@ -7,10 +7,12 @@ app = Flask(__name__)
 print(__name__)
 mail = Mail(app)
 
+# Rendering the home page
 @app.route('/')
 def homepg():
     return render_template('index.html')
 
+# Rendering every other page (default is index.html)
 @app.route('/<string:pagename>')
 def extrapg(pagename="index.html"):
     return render_template(pagename)
@@ -24,15 +26,13 @@ def write_to_csv(data):
         csv_write = csv.writer(db2, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_write.writerow([email_addr , subject, message])
 
+data = []
 
-@app.route('/submit_form', methods=['POST', 'GET'])
+# Render the contact page (again) - this overrides the other rendering method
+@app.route('/contact.html', methods=['POST', 'GET'])
 def submit_form():
-    if request.method == 'POST':
-        try:
-            data = request.form.to_dict()
-            write_to_csv(data)
-            return redirect('thanks.html')
-        except:
-            return "Did not save to database!"
-    else:
-        return "Something went wrong!"
+    if request.method == "GET":
+        return render_template('contact.html', data=data)
+
+    data.append(request.form.to_dict())
+    return redirect('/thankyou.html')
