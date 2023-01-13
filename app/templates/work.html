@@ -67,8 +67,43 @@
             <h1 class="h2"><a href="https://github.com/kj3moraes/MyQiskitProgramming">001 : verCE</a></h1>
           </div>
           <h3>JIT Compilers</h3>
-          <p>Just-In-Time compilers are compilers that will compiler the source code </p>
+          <p>Just-In-Time compilers are compilers that will compile the source code at run-time. It is a hybrid between AOT (Ahead-Of-Time) compilers
+             and Interpreters. JIT compilers fix the cons of both static compilers and interpreters and offer enormous avenues for development. 
+             Since AOT compilers generate object files that are then linked to the executable, they are not very flexible. You cannot write a whole program
+             in one stroke with interpreters. JIT compilers solve both these issues. 
+
+             I strongly believe that JIT compilers are the way forward for modern programming languages. 
+          </p>
           
+
+          <h3>verCE and its Features</h3>
+          <p>
+            verCE is my custom cross-platform JIT compiler. I designed it using the Kaleidoscope tutorial on the LLVM website but I integrated several features
+            and development strategies that I learnt from CS241 at the University of Waterloo. This project was a great learning experience for me and I am very proud of it.
+            The programming language offers the following features : 
+            <ol>
+              <li>`extern` keyword</li>
+              <li>if/for control statements</li>
+              <li>double variables</li>
+              <li>global statements</li>
+              <li>comments</li>
+            </ol>
+          </p>
+
+          <p>The compiler was developed with the following design properties
+            <ol>
+              <li><b>Visitor Design Pattern</b> - for code generation, to decrease coupling between code generation and abstract syntax tree</li>
+              <li><b>Smart Pointers</b> - eliminate the need for explicit memory management</li>
+              <li><b>Smart Pointers</b> - </li>
+            </ol>
+          </p>
+
+          <p>
+            <b>This project is still a work in progress. I still have to implement user-defined operators and parse command line arguments to the compiler. However,
+              I am very happy with the progress I have made so far and am willing to chat about it at any time.
+            </b>
+          </p>
+
         </div>
       </div>
 
